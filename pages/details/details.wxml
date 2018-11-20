@@ -1,0 +1,41 @@
+<!--pages/details/details.wxml-->
+<view class='main'>
+  <!-- 商品图片 购物车 -->
+  <view class='good'>
+    <view class='good-img'>
+      <image src='../../image/goods1.png'></image>
+    </view>
+    <view class='good-cart'>
+      <badge count="{{totalNum}}"></badge>
+      <image src='../../image/cart2.png'></image>
+    </view>
+  </view>
+  <!-- 选择数量 加图购物车 -->
+  <view class='buy'>
+    <view class='buy-number'>
+      <button plain="{{true}}" bindtap="handleGoogsNumberAdd">+</button>
+      <text>{{number}}</text>
+      <button plain="{{true}}" bindtap="handleGoogsNumberDecrease">-</button>
+    </view>
+    <view class='buy-cart'>
+      <text>加入购物车</text>
+      <image bindtap='handleAddCart' src="../../image/cart1.png"></image>
+      <view wx:if="{{show}}" class="buy-cart-move"></view>
+    </view>
+  </view>
+  <!-- 分割线 -->
+  <view class='line'></view>
+  <!-- tab栏 -->
+  <view class='tab'>
+    <view class='tab-bar'>
+      <view class="{{tabIndex === 1 ? 'on' : '' }}" bindtap='handleTabClick' data-index="{{1}}">商品详情</view>
+      <view class="{{tabIndex === 2 ? 'on' : '' }}" bindtap='handleTabClick' data-index="{{2}}">商品参数</view>
+      <view class="{{tabIndex === 3 ? 'on' : '' }}" bindtap='handleTabClick' data-index="{{3}}">售后保障</view>
+    </view>
+    <view class='tab-content'>
+      <view wx:if="{{tabIndex === 1}}">一份五个</view>
+      <view wx:if="{{tabIndex === 2}}">150g/个</view>
+      <view wx:if="{{tabIndex === 3}}">七天无理由退货</view>
+    </view>
+  </view>
+</view>

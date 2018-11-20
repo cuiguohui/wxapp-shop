@@ -1,0 +1,68 @@
+<view>
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{false}}" interval="{{2000}}" circular="{{true}}">
+    <swiper-item wx:for="{{img}}" wx:key="{{index}}">
+      <image class='img' src="{{item}}"></image>
+    </swiper-item>
+  </swiper>
+  <!-- 精选主题 -->
+  <view class='theme'>
+    <view class='title'>精选主题</view>
+    <view class='theme-sort'>
+      <view class='theme-sort-small'>
+        <image src='/image/s1.png'></image>
+      </view>
+      <view class='theme-sort-small'>
+        <image src='/image/s2.png'></image>
+      </view>
+      <view class='theme-sort-big'>
+        <image src='/image/s3.png'></image>
+      </view>
+    </view>
+  </view>
+  <!-- 最近商品 -->
+  <view class='goods'>
+    <view class='title'>最近商品</view>
+    <view class='goods-sort'>
+      <view class='goods-sort-item'>
+        <navigator url="../details/details?id=1">
+          <image src='/image/s4.png'></image>
+        </navigator>
+      </view>
+    </view>
+    <view class='goods-sort'>
+      <view class='goods-sort-item'>
+        <navigator>
+          <image src='/image/s5.png'></image>
+        </navigator>
+      </view>
+    </view>
+    <view class='goods-sort'>
+      <view class='goods-sort-item'>
+        <navigator>
+          <image src='/image/s6.png'></image>
+        </navigator>
+      </view>
+    </view>
+    <view class='goods-sort'>
+      <view class='goods-sort-item'>
+        <navigator>
+          <image src='/image/s4.png'></image>
+        </navigator>
+      </view>
+    </view>
+    <view class='goods-sort'>
+      <view class='goods-sort-item'>
+        <navigator>
+          <image src='/image/s5.png'></image>
+        </navigator>
+      </view>
+    </view>
+    <view class='goods-sort'>
+      <view class='goods-sort-item'>
+        <navigator>
+          <image src='/image/s6.png'></image>
+        </navigator>
+      </view>
+    </view>
+  </view>
+</view>

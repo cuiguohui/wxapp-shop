@@ -1,0 +1,44 @@
+<!--pages/cart/cart.wxml-->
+<view class='main'>
+  <view wx:if="{{goods.length}}">
+    <view class='goods-details' wx:for="{{goods}}" wx:key="{{item.id}}">
+      <view class='select'>
+        <icon wx:if="{{item.selected}}" type="success" color="red" data-index="{{index}}" class="cart-pro-select" bindtap="selectList" />
+        <icon wx:else type="circle" class="cart-pro-select" data-index="{{index}}" bindtap="selectList" />
+        <navigator class='goods-picture' url='../../pages/details/details'>
+          <image src="{{item.src}}"></image>
+        </navigator>
+      </view>
+      <!-- 商品名 选择数量 -->
+      <view class='name'>
+        <view>{{item.name}}</view>
+        <view class='name-button'>
+          <button plain="{{true}}" bindtap="handleGoogsNumberAdd" data-index="{{index}}">+</button>
+          <text>{{item.number}}</text>
+          <button plain="{{true}}" bindtap="handleGoogsNumberDecrease" data-index="{{index}}">-</button>
+        </view>
+      </view>
+      <!-- 价钱 删除 -->
+      <view class='money'>
+        <view>￥{{item.money}}</view>
+        <button plain="{{true}}" bindtap="handleGoogsDelete" data-index="{{index}}">x</button>
+      </view>
+    </view>
+    <!-- 购物车底部 -->
+    <view class="cart-footer">
+      <icon wx:if="{{selectAllStatus}}" type="success_circle" color="#fff" class="total-select" bindtap="selectAll" />
+      <icon wx:else type="circle" color="#fff" class="total-select" bindtap="selectAll" />
+      <view class="order-icon">
+        <navigator url="../orders/orders">
+          <image src="/image/icon3.png"></image>
+        </navigator>
+      </view>
+      <text wx:if="{{!selectAllStatus}}">全选</text>
+      <text wx:else>全不选</text>
+      <text class="cart-toatl-price ">￥{{totalPrice}}</text>
+    </view>
+  </view>
+  <view wx:else>
+    <view class="cart-no-data ">购物车是空的哦~</view>
+  </view>
+</view>
