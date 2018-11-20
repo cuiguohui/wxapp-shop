@@ -1,11 +1,11 @@
-// pages/category/category.js
+// pages/web-view/web-view.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    url:'服务器测试地址'
   },
 
   /**

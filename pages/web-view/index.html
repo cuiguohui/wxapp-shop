@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,target-densitydpi=device-dpi"/>
+
+  <title>微信小程序</title>
+</head>
+<body>
+  <div>这是web-view组件</div>
+  <div id="url"></div>
+  <button id="button">返回首页</button>
+  <button id="map">获取位置</button>
+</body>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.3.0.js"></script>
+<script>
+  // 获取小程序传来的参数
+  var a = window.location.href;
+  console.log(a);
+  var html = window.unescape(a);
+  document.getElementById('url').innerText=html;
+
+  // 返回小程序的首页
+  var button = document.getElementById('button');
+  button.onclick = function () {
+    wx.miniProgram.switchTab({
+      url:'/pages/home/home',
+      success: function(){
+        console.log('success')
+      },
+      fail: function(){
+        console.log('fail');
+      },
+      complete:function(){
+        console.log('complete');
+      }
+    })
+  };
+
+  // 点击获取位置信息
+  var mapBtn = document.getElementById('map');
+  mapBtn.onclick = function () {
+    wx.getLocation();
+  }
+</script>
+</html>
